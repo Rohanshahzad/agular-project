@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<div
+  style="display: flex; flex-direction: column; background-color: rgb(15, 100, 73); width: 22%; height: 600px; position: fixed; margin-top: 64px;">  
+  <div class="search-bar">
+    <!-- <input #search ngModel type="text" placeholder="Search..."> -->
+    <input #search ngModel type="text" placeholder="Search by Title..." (input)="searchBar(search.value)">
+    <button class="btn" type="submit" (click)="searchBar(search.value)"><i class="fas fa-search"></i></button>
+  </div>
+  <a routerLink="/home" (click)="handleNavigation('sports')">
+    <h1 class="heading-2">Sports ({{sportsCount}})</h1>
+  </a>
+  <a routerLink="/home" (click)="handleNavigation('entertainment')">
+    <h1 class="heading-2">Entertainment ({{entertainmentCount}})</h1>
+  </a>
+  <a routerLink="/home" (click)="handleNavigation('news')">
+    <h1 class="heading-2">News ({{newsCount}})</h1>
+  </a>
+  <a routerLink="/home" (click)="handleNavigation('fashion')">
+    <h1 class="heading-2">Fashion ({{fashionCount}})</h1>
+  </a>
+  <a routerLink="/home" (click)="handleNavigation('economy')">
+    <h1 class="heading-2">Economy ({{economyCount}})</h1>
+  </a>
+</div>
+<router-outlet></router-outlet>

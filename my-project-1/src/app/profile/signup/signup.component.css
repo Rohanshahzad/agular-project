@@ -1,0 +1,43 @@
+* {
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.container-1 {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.form-heading {
+  margin-left: 130px;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading {
+  font-size: 30px;
+  color: white;
+  width: 12%;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: sans-serif;
+}

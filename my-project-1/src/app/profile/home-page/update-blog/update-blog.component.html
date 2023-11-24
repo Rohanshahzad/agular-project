@@ -1,0 +1,50 @@
+<div appInactivityReset>
+<div
+  style="margin-bottom: 30px; height: 70px; width: 100%; background-color: rgb(12, 71, 52); display: flex; justify-content: center;">
+  <button class="button-2" mat-button [style.color]="'white'" (click)="back()">Back</button>
+</div>
+<div class="container-1">
+  <form [formGroup]="blogs" (ngSubmit)="updateBlog(blogs.value)">
+    <h1 class="form-heading">EDIT BLOG</h1>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" placeholder="Enter title" formControlName="title" />
+      <mat-error style="margin-left: -10px; margin-top: 5px; font-size: 18px;" *ngIf="title.invalid && title.touched" class="error-message">
+        Invalid Title
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field-2">
+      <mat-label>Description</mat-label>
+      <textarea style="height: 110px;" matInput type="text" placeholder="Enter Description"
+        formControlName="description"></textarea>
+        <mat-error style="margin-left: -10px; margin-top: 5px; font-size: 18px;" *ngIf="description.invalid && description.touched" class="error-message">
+          Invalid Description
+        </mat-error>
+    </mat-form-field>
+    <label for="category" style="margin-right: 15px;">Choose a category:</label>
+    <select name="category" id="category" formControlName="category" style="margin-bottom: 30px;">
+      <option value="news">News</option>
+      <option value="fashion">Fashion</option>
+      <option value="sports">Sports</option>
+      <option value="entertainment">Entertainment</option>
+      <option value="economy">Economy</option>
+    </select>
+    <mat-error style="margin-left: 0px; margin-top: -20px; font-size: 18px;" *ngIf="category.invalid && category.touched" class="error-message">
+      Please select a Category
+    </mat-error>
+
+    <div class="text-center">
+      <input class="form-control" type="file" formControlName="image" (change)="onChange($event)">
+      <img *ngIf="prevImage" [src]="prevImage" alt="Selected Image" style="max-width: 100%; height: auto;">
+    </div>
+    <mat-error style="margin-left: 0px; margin-top: 10px; font-size: 18px;" *ngIf="image.invalid && image.touched" class="error-message">
+      Please select an Image
+    </mat-error>
+
+    <div class="form-buttons">
+      <button mat-raised-button style="margin-top: 20px;" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+<p-toast></p-toast>
+</div>

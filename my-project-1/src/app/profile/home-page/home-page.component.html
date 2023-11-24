@@ -1,0 +1,14 @@
+<div appInactivityReset>
+<app-navbar (childEvent)="getData($event)"></app-navbar>
+<div style="display: flex;">
+  <app-sidebar [myArray]="array" (searchEvent)="getSearchData($event)" (childsEvent)="getData($event)">
+  </app-sidebar>
+  <div *ngIf="(blog_service.loader | async)">
+    <mat-spinner class="custom-spinner"></mat-spinner>
+  </div>
+  
+  <div *ngIf="noMatch" style=" width: 300px; margin-top: 320px; margin-left: 580px;"><p>No Blogs Found</p></div>
+  <app-cards *ngIf="!(blog_service.loader | async)" (childEvent)="delete($event)" [myArray]="sortedAsc" > </app-cards>
+</div>
+</div>
+

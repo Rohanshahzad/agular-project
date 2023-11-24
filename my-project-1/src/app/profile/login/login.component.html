@@ -1,0 +1,31 @@
+<div *ngIf="isLoginPage" style="margin-bottom: 30px; width: 100%; background-color: rgb(12, 71, 52);">
+  <h1 class="heading">Welcome</h1>
+</div>
+<div class="container-1">
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+    <h1 class="form-heading">LOGIN</h1>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" placeholder="Enter your Email" formControlName="email" />
+      <mat-error style="margin-left: -10px; margin-top: 5px; font-size: 18px;" *ngIf="email.invalid && email.touched" class="error-message">
+        Invalid Email
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="Enter your Password"
+        formControlName="password" />
+      <mat-icon matSuffix (click)="togglePasswordVisibility()">visibility</mat-icon>
+      <mat-error style="margin-left: -10px; margin-top: 5px; font-size: 18px;" *ngIf="password && password.invalid && password.touched" class="error-message">
+        Invalid Password
+      </mat-error>
+    </mat-form-field>
+    <div class="form-buttons">
+      <button mat-raised-button type="submit">Submit</button>
+      <button mat-raised-button routerLink="/signup">Sign up</button>
+    </div>
+  </form>
+</div>
+<p-toast></p-toast>
+<router-outlet></router-outlet>

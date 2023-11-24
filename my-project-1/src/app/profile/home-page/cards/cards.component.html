@@ -1,0 +1,26 @@
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
+<!-- <div *ngIf="myArray.length==0 && !loading" style=" width: 300px; margin-top: 280px; margin-left: 170px;"><p>No Blogs Found</p></div> -->
+<div class="card-container" style="margin-top: 80px">
+  <!-- <div  *ngIf="loading"><mat-spinner class="custom-spinner"></mat-spinner></div> -->  
+  <div routerLink="/blogDetails/{{ val.id }}" class="card" *ngFor="let val of myArray">
+    <img class="image" src="{{val.image}}">
+    <h1 class="category">{{ val.category }}</h1>
+    <h2 class="title">{{ val.title }}</h2>
+    <p class="description">{{ val.description | truncate: 62 }}...</p>
+    <div class="author-date">
+      <p class="author"><b>By {{ val.author }}</b></p>
+      <p style="margin-left: 10px; font-size: 12px;" class="date"><b>Posted:</b> <br />{{ val.date | date }}</p>
+      <div *ngIf="val.newdate">
+        <p style="margin-left: 0px; font-size: 12px;"> <b>Updated:</b> <br /> {{ val.newdate | date }}</p>
+      </div>
+    </div>
+    <div class="buttons">
+      <button routerLink="/updateBlog/{{ val.id }}" *ngIf="val.username==splitEmail" mat-button class="edit"><i
+          class="pi pi-file-edit" style="font-size: 1.2rem"></i></button>
+      <button *ngIf="val.username==splitEmail" mat-button class="delete" (click)="delete(val.id, $event)"><i
+          class="pi pi-trash" style="font-size: 1.2rem"></i></button>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+<p-toast></p-toast>

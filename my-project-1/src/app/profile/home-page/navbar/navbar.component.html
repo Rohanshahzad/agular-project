@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" style="position: fixed; z-index: 1; margin-top: 0;">
+  <div style="display: flex; width: 100%;">
+    <div style="width: 95%;">
+      <a mat-button routerLink="/home" (click)="handleNavigation('home')">Home</a>
+      <a mat-button routerLink="/home" (click)="handleNavigation('sports')">Sports</a>
+      <a mat-button routerLink="/home" (click)="handleNavigation('entertainment')">Entertainment</a>
+      <a mat-button routerLink="/home" (click)="handleNavigation('news')">News</a>
+      <a mat-button routerLink="/home" (click)="handleNavigation('fashion')">Fashion</a>
+      <a mat-button routerLink="/home" (click)="handleNavigation('economy')">Economy</a>
+    </div>
+    <div>
+      <span class="spacer"></span>
+      <button class="button-1" mat-button (click)="createBlog()">Create Blog</button>
+      <button class="button-1" mat-button (click)="logout()">Logout</button>
+    </div>
+  </div>
+</mat-toolbar>
+<router-outlet></router-outlet>
+<p-toast></p-toast>
